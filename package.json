@@ -12,6 +12,7 @@
     "time-difference-calculator",
     "time-left",
     "time-taken",
-    "date-calculator"
+    "date-calculator",
+    "time-diff"
   ]
 }
