@@ -20,11 +20,16 @@ npm install time-difference-calculator
 ```sh
 import {timeDifferenceCalculator} from 'time-difference-calculator';
 
-console.log('---Time Difference Between Given Date and Current Date---');
 const date1 = "27/09/2021";
-console.log(timeDifferenceCalculator(date1));
 const date2 = "28/09/2021";
+
+console.log('---Time Difference Between Given Date and Current Date---');
+
+console.log(timeDifferenceCalculator(date1));
+
+
 console.log('---Time Difference Between Two Given Dates---');
+
 console.log(timeDifferenceCalculator(date1, date2));
 
 ```
