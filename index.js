@@ -19,7 +19,7 @@ const hoursMinutesSecondsCalculation = (ms) => {
 exports.timeDifferenceCalculator = (fromDate, toDate = new Date()) => {
     const differenceOfTwoDates = Math.abs(Date.parse(toDate) - Date.parse(fromDate));
     const numberOfDays = Math.ceil(differenceOfTwoDates / (1000 * 60 * 60 * 24));
-    if (numberOfDays > 1) {
+    if (numberOfDays >= 1) {
         return `${numberOfDays} days ago`
     }
     return hoursMinutesSecondsCalculation(differenceOfTwoDates);
