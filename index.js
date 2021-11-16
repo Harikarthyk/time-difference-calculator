@@ -4,7 +4,7 @@ exports.timeDifferenceCalculator = (fromDate, toDate = new Date()) => {
     const hrs = Math.floor(differenceOfTwoDates/HRS);
     const min = Math.floor((differenceOfTwoDates%HRS)/MIN).toLocaleString('en-US', {minimumIntegerDigits: 2})
     if(hrs == 0){
-        return `${min} mins age.`
+        return `${min} mins ago.`
     }
     if(min == 0){
         return `just now.`;
