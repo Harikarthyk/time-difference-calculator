@@ -1,26 +1,16 @@
-const hoursMinutesSecondsCalculation = (ms) => {
-    let sec = Math.floor(ms / 1000);
-    const hrs = Math.floor(sec / 3600);
-    sec -= hrs * 3600;
-    let min = Math.floor(sec / 60);
-    sec -= min * 60;
-    sec = '' + sec;
-    sec = ('0' + sec).substring(sec.length);
-    if (hrs > 0) {
-        min = '' + min;
-        min = ('0' + min).substring(min.length);
-        return (hrs > 0 ? hrs : "") + " hrs ago";
-    }
-    else {
-        return (min > 0 ? `${min} mins ago` : `just now`);
-    }
-}
-
 exports.timeDifferenceCalculator = (fromDate, toDate = new Date()) => {
-    const differenceOfTwoDates = Math.abs(Date.parse(toDate) - Date.parse(fromDate));
-    const numberOfDays = Math.ceil(differenceOfTwoDates / (1000 * 60 * 60 * 24));
-    if (numberOfDays >= 1) {
-        return `${numberOfDays} days ago`
+    const differenceOfTwoDates = Math.abs(Math.max(Date.parse(toDate), Date.parse(fromDate)) - Math.min(Date.parse(fromDate), Date.parse(toDate))) ;
+    const SEC = 1000, MIN = 60 * SEC, HRS = 60 * MIN;
+    const hrs = Math.floor(differenceOfTwoDates/HRS);
+    const min = Math.floor((differenceOfTwoDates%HRS)/MIN).toLocaleString('en-US', {minimumIntegerDigits: 2})
+    if(hrs == 0){
+        return `${min} mins age.`
     }
-    return hoursMinutesSecondsCalculation(differenceOfTwoDates);
+    if(min == 0){
+        return `just now.`;
+    }
+    if(hrs >= 24){
+        return `${parseInt(hrs / 24)} days ago.`;
+    }
+    return `${hrs} hrs ago.`
 }
