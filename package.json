@@ -1,6 +1,6 @@
 {
   "name": "time-difference-calculator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Time difference calculator, This helps in calculating the time difference between two dates and return result like 2 days ago, 45 mins ago and just now.",
   "main": "index.js",
   "scripts": {
